@@ -16,7 +16,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        return view('empleado.index', ['empleados' => Empleado::paginate(10), 'empresas' => Empresa::all()]);
+        return view('empleado.index', ['empleados' => Empleado::paginate(10)]);
     }
 
     /**
@@ -37,7 +37,7 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $request->validate([
             'nombre' => 'required',
             'apellidos' => 'required',
             'correo' => 'email',

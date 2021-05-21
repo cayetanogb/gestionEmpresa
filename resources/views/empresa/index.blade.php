@@ -26,7 +26,8 @@
                                 @foreach ($empresas as $empresa)
                                     <tr>
                                         <td>
-                                            <a href="{{ route('showEmpresa', $empresa->id) }}">{{ $empresa->nombre }}</a>
+                                            <a class="text-dark text-decoration-none"
+                                                href="{{ route('showEmpresa', $empresa->id) }}">{{ $empresa->nombre }}</a>
                                         </td>
                                         <td>{{ $empresa->direccion }}</td>
                                         <td>{{ $empresa->sitioWeb }}</td>

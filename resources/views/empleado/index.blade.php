@@ -28,13 +28,7 @@
                                     <tr>
                                         <td>{{ $empleado->nombre }}</td>
                                         <td>{{ $empleado->apellidos }}</td>
-                                        <td>
-                                            @foreach ($empresas as $empresa)
-                                                @if ($empresa->id == $empleado->empresa_id)
-                                                    {{ $empresa->nombre }}
-                                                @endif
-                                            @endforeach
-                                        </td>
+                                        <td>{{ $empleado->empresa->nombre }}</td>
                                         <td>{{ $empleado->correo }}</td>
                                         <td>{{ $empleado->telefono }}</td>
                                         <td>

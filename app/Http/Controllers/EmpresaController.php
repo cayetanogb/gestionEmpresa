@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empleado;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -57,7 +58,7 @@ class EmpresaController extends Controller
      */
     public function show($id)
     {
-        return view('empresa.show', ['empresa' => Empresa::findOrFail($id)]);
+        return view('empresa.show', ['empresa' => Empresa::findOrFail($id), 'empleados' => Empleado::where('empresa_id', $id)->get()]);
     }
 
     /**
