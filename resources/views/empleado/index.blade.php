@@ -28,7 +28,13 @@
                                     <tr>
                                         <td>{{ $empleado->nombre }}</td>
                                         <td>{{ $empleado->apellidos }}</td>
-                                        <td></td>
+                                        <td>
+                                            @foreach ($empresas as $empresa)
+                                                @if ($empresa->id == $empleado->empresa_id)
+                                                    {{ $empresa->nombre }}
+                                                @endif
+                                            @endforeach
+                                        </td>
                                         <td>{{ $empleado->correo }}</td>
                                         <td>{{ $empleado->telefono }}</td>
                                         <td>
@@ -46,6 +52,8 @@
                                 @endforeach
                             </tbody>
                         </table>
+
+                        {{ $empleados->links() }}
                     @else
                         <p>No hay empleados en este momento</p>
                     @endif

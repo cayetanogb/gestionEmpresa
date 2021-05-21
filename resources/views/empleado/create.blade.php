@@ -24,7 +24,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">Empresa</label>
-                            <select class="form-select">
+                            <select class="form-select" name="empresa">
                                 @foreach ($empresas as $empresa)
                                     <option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
                                 @endforeach

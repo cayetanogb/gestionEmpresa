@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/empresa/create', [EmpresaController::class, 'store'])->name('addEmpresa');
 
+    Route::get('/empresa/{id}', [EmpresaController::class, 'show'])->name('showEmpresa');
+
     Route::get('/empresa/edit/{id}', [EmpresaController::class, 'edit'])->name('editEmpresa');
 
     Route::put('/empresa/edit/{id}', [EmpresaController::class, 'update'])->name('updateEmpresa');

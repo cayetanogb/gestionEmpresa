@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('updateEmpleado') }}" method="post">
+                    <form action="{{ route('updateEmpleado', $empleado->id) }}" method="post">
                         @method('put')
                         @csrf
 
@@ -26,8 +26,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">Empresa</label>
-                            <input class="form-control" type="text" name="empresa" value="{{ $empleado->empresa }}">
-                            <select class="form-select">
+                            <select class="form-select" name="empresa">
                                 @foreach ($empresas as $empresa)
                                     <option value="{{ $empresa->id }}">{{ $empresa->nombre }}</option>
                                 @endforeach

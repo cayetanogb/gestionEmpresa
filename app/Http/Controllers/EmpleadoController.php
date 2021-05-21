@@ -16,7 +16,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        return view('empleado.index', ['empleados' => Empleado::all(), 'empresas' => Empresa::all()]);
+        return view('empleado.index', ['empleados' => Empleado::paginate(10), 'empresas' => Empresa::all()]);
     }
 
     /**
@@ -37,13 +37,22 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nombre' => 'required',
+            'apellidos' => 'required',
+            'correo' => 'email',
+            'telefono' => 'integer',
+        ]);
+
         $empleado = new Empleado;
 
         $empleado->nombre = $request->input('nombre');
         $empleado->apellidos = $request->input('apellidos');
         $empleado->correo = $request->input('correo');
         $empleado->telefono = $request->input('telefono');
-        $empleado->empresa = $request->input('empresa');
+        $empleado->empresa_id = $request->input('empresa');
+
+        $empleado->save();
 
         return redirect()->route('indexEmpleado');
     }
@@ -54,7 +63,7 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function show(Empleado $empleado)
+    public function show($id)
     {
         //
     }
@@ -77,9 +86,19 @@ class EmpleadoController extends Controller
      * @param  \App\Models\Empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, $id)
     {
-        //
+        $empleado = Empleado::findOrFail($id);
+
+        $empleado->nombre = $request->input('nombre');
+        $empleado->apellidos = $request->input('apellidos');
+        $empleado->correo = $request->input('correo');
+        $empleado->telefono = $request->input('telefono');
+        $empleado->empresa_id = $request->input('empresa');
+
+        $empleado->save();
+
+        return redirect()->route('indexEmpleado');
     }
 
     /**

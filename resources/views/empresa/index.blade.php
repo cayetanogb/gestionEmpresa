@@ -25,7 +25,9 @@
                             <tbody>
                                 @foreach ($empresas as $empresa)
                                     <tr>
-                                        <td>{{ $empresa->nombre }}</td>
+                                        <td>
+                                            <a href="{{ route('showEmpresa', $empresa->id) }}">{{ $empresa->nombre }}</a>
+                                        </td>
                                         <td>{{ $empresa->direccion }}</td>
                                         <td>{{ $empresa->sitioWeb }}</td>
                                         <td>{{ $empresa->correo }}</td>
@@ -44,6 +46,8 @@
                                 @endforeach
                             </tbody>
                         </table>
+
+                        {{ $empresas->links() }}
                     @else
                         <p>No hay empresas en este momento</p>
                     @endif

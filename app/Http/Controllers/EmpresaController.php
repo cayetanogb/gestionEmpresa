@@ -15,7 +15,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        return view('empresa.index', ['empresas' => Empresa::all()]);
+        return view('empresa.index', ['empresas' => Empresa::paginate(10)]);
     }
 
     /**
@@ -55,9 +55,9 @@ class EmpresaController extends Controller
      * @param  \App\Models\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function show(Empresa $empresa)
+    public function show($id)
     {
-        //
+        return view('empresa.show', ['empresa' => Empresa::findOrFail($id)]);
     }
 
     /**
