@@ -17,25 +17,55 @@
                             <input class="form-control" type="text" name="nombre">
                         </div>
 
+                        @error('nombre')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
                         <div class="form-group pt-3">
                             <label class="form-label">Direccion</label>
                             <input class="form-control" type="text" name="direccion">
                         </div>
+
+                        @error('direccion')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
 
                         <div class="form-group pt-3">
                             <label class="form-label">Sitio web</label>
                             <input class="form-control" type="text" name="sitioWeb">
                         </div>
 
+                        @error('sitioWeb')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
                         <div class="form-group pt-3">
                             <label class="form-label">Correo electronico</label>
                             <input class="form-control" type="email" name="correo">
                         </div>
 
+                        @error('correo')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
                         <div class="form-group pt-3">
                             <label class="form-label">Logotipo</label>
                             <input class="form-control" type="text" name="logotipo">
                         </div>
+
+                        @error('logotipo')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
 
                         <div class="d-grid gap-2 col-2 mx-auto pt-3">
                             <input class="btn btn-primary" type="submit" value="Crear" name="crear">

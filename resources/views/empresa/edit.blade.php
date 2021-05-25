@@ -18,26 +18,56 @@
                             <input class="form-control" type="text" name="nombre" value="{{ $empresa->nombre }}">
                         </div>
 
+                        @error('nombre')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
                         <div class="form-group pt-3">
                             <label class="form-label">Direccion</label>
                             <input class="form-control" type="text" name="direccion"
                                 value="{{ $empresa->direccion }}">
                         </div>
 
+                        @error('direccion')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
                         <div class="form-group pt-3">
                             <label class="form-label">Sitio web</label>
                             <input class="form-control" type="text" name="sitioWeb" value="{{ $empresa->sitioWeb }}">
                         </div>
+
+                        @error('sitioWeb')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
 
                         <div class="form-group pt-3">
                             <label class="form-label">Correo electronico</label>
                             <input class="form-control" type="email" name="correo" value="{{ $empresa->correo }}">
                         </div>
 
+                        @error('correo')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
                         <div class="form-group pt-3">
                             <label class="form-label">Logotipo</label>
                             <input class="form-control" type="text" name="logotipo" value="{{ $empresa->logotipo }}">
                         </div>
+
+                        @error('logotipo')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
 
                         <div class="d-grid gap-2 col-2 mx-auto pt-3">
                             <input class="btn btn-primary" type="submit" value="Editar" name="editar">

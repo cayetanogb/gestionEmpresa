@@ -15,6 +15,7 @@
                         <table class="table table-bordered">
                             <thead class="table-dark">
                                 <tr>
+                                    <th scope="col">Logo</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Direccion</th>
                                     <th scope="col">Sitio web</th>
@@ -25,6 +26,7 @@
                             <tbody>
                                 @foreach ($empresas as $empresa)
                                     <tr>
+                                        <td></td>
                                         <td>
                                             <a class="text-dark text-decoration-none"
                                                 href="{{ route('showEmpresa', $empresa->id) }}">{{ $empresa->nombre }}</a>

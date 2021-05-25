@@ -18,11 +18,23 @@
                             <input class="form-control" type="text" name="nombre" value="{{ $empleado->nombre }}">
                         </div>
 
+                        @error('nombre')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
                         <div class="form-group pt-3">
                             <label class="form-label">Apellidos</label>
                             <input class="form-control" type="text" name="apellidos"
                                 value="{{ $empleado->apellidos }}">
                         </div>
+
+                        @error('apellidos')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
 
                         <div class="form-group pt-3">
                             <label class="form-label">Empresa</label>
@@ -38,10 +50,23 @@
                             <input class="form-control" type="email" name="correo" value="{{ $empleado->correo }}">
                         </div>
 
+                        @error('correo')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
                         <div class="form-group pt-3">
                             <label class="form-label">telefono</label>
-                            <input class="form-control" type="text" name="telefono" value="{{ $empleado->telefono }}">
+                            <input class="form-control" type="text" name="telefono"
+                                value="{{ $empleado->telefono }}">
                         </div>
+
+                        @error('telefono')
+                            <div class="alert alert-danger mt-2">
+                                {{ $message }}
+                            </div>
+                        @enderror
 
                         <div class="d-grid gap-2 col-2 mx-auto pt-3">
                             <input class="btn btn-primary" type="submit" value="Crear" name="crear">

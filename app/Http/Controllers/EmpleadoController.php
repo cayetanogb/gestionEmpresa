@@ -88,6 +88,13 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre' => 'required',
+            'apellidos' => 'required',
+            'correo' => 'email',
+            'telefono' => 'integer',
+        ]);
+
         $empleado = Empleado::findOrFail($id);
 
         $empleado->nombre = $request->input('nombre');
