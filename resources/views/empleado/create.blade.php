@@ -14,7 +14,7 @@
 
                         <div class="form-group">
                             <label class="form-label">Nombre</label>
-                            <input class="form-control" type="text" name="nombre">
+                            <input class="form-control" type="text" name="nombre" value="{{ old('nombre') }}">
                         </div>
 
                         @error('nombre')
@@ -25,7 +25,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">Apellidos</label>
-                            <input class="form-control" type="text" name="apellidos">
+                            <input class="form-control" type="text" name="apellidos" value="{{ old('apellidos') }}">
                         </div>
 
                         @error('apellidos')
@@ -45,7 +45,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">Correo electronico</label>
-                            <input class="form-control" type="email" name="correo">
+                            <input class="form-control" type="email" name="correo" value="{{ old('correo') }}">
                         </div>
 
                         @error('correo')
@@ -56,7 +56,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">telefono</label>
-                            <input class="form-control" type="text" name="telefono">
+                            <input class="form-control" type="text" name="telefono" value="{{ old('telefono') }}">
                         </div>
 
                         @error('telefono')

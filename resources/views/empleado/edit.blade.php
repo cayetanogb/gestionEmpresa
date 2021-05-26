@@ -69,7 +69,7 @@
                         @enderror
 
                         <div class="d-grid gap-2 col-2 mx-auto pt-3">
-                            <input class="btn btn-primary" type="submit" value="Crear" name="crear">
+                            <input class="btn btn-primary" type="submit" value="Editar" name="editar">
                         </div>
                     </form>
                 </div>

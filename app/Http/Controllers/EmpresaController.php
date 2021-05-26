@@ -6,6 +6,7 @@ use App\Models\Empleado;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class EmpresaController extends Controller
 {
@@ -42,7 +43,7 @@ class EmpresaController extends Controller
             'direccion' => 'string',
             'sitioWeb' => 'URL',
             'correo' => 'email',
-            'logotipo' => 'string'
+            'logotipo' => 'image|dimensions:min_width=100,min_height=100'
         ]);
 
         $empresa = new Empresa;
@@ -51,7 +52,8 @@ class EmpresaController extends Controller
         $empresa->direccion = $request->input('direccion');
         $empresa->sitioWeb = $request->input('sitioWeb');
         $empresa->correo = $request->input('correo');
-        $empresa->logotipo = $request->input('logotipo');
+
+        if ($request->hasFile('logotipo')) $empresa->logotipo = $request->file('logotipo')->store('images', 'public');
 
         $empresa->save();
 
@@ -94,7 +96,7 @@ class EmpresaController extends Controller
             'direccion' => 'string',
             'sitioWeb' => 'URL',
             'correo' => 'email',
-            'logotipo' => 'string'
+            'logotipo' => 'image|dimensions:min_width=100,min_height=100'
         ]);
 
         $empresa = Empresa::findOrFail($id);
@@ -103,7 +105,12 @@ class EmpresaController extends Controller
         $empresa->direccion = $request->input('direccion');
         $empresa->sitioWeb = $request->input('sitioWeb');
         $empresa->correo = $request->input('correo');
-        $empresa->logotipo = $request->input('logotipo');
+
+        if ($request->hasFile('logotipo')) {
+            Storage::delete('public/' . $empresa->logotipo);
+
+            $empresa->logotipo = $request->file('logotipo')->store('images', 'public');
+        }
 
         $empresa->save();
 
@@ -118,7 +125,11 @@ class EmpresaController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('empresas')->delete($id);
+        $empresa = Empresa::findOrFail($id);
+
+        if (Storage::delete('public/' . $empresa->logotipo)) {
+            $empresa->delete();
+        }
 
         return redirect()->route('indexEmpresa');
     }

@@ -26,7 +26,7 @@
                             <tbody>
                                 @foreach ($empresas as $empresa)
                                     <tr>
-                                        <td></td>
+                                        <td><img src="{{ asset('storage').'/'.$empresa->logotipo }}" width="25%"></td>
                                         <td>
                                             <a class="text-dark text-decoration-none"
                                                 href="{{ route('showEmpresa', $empresa->id) }}">{{ $empresa->nombre }}</a>

@@ -9,12 +9,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('addEmpresa') }}" method="post">
+                    <form action="{{ route('addEmpresa') }}" method="post" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
                             <label class="form-label">Nombre</label>
-                            <input class="form-control" type="text" name="nombre">
+                            <input class="form-control" type="text" name="nombre" value="{{ old('nombre') }}">
                         </div>
 
                         @error('nombre')
@@ -25,7 +25,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">Direccion</label>
-                            <input class="form-control" type="text" name="direccion">
+                            <input class="form-control" type="text" name="direccion" value="{{ old('direccion') }}">
                         </div>
 
                         @error('direccion')
@@ -36,7 +36,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">Sitio web</label>
-                            <input class="form-control" type="text" name="sitioWeb">
+                            <input class="form-control" type="text" name="sitioWeb" value="{{ old('sitioWeb') }}">
                         </div>
 
                         @error('sitioWeb')
@@ -47,7 +47,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">Correo electronico</label>
-                            <input class="form-control" type="email" name="correo">
+                            <input class="form-control" type="email" name="correo" value="{{ old('correo') }}">
                         </div>
 
                         @error('correo')
@@ -58,7 +58,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">Logotipo</label>
-                            <input class="form-control" type="text" name="logotipo">
+                            <input class="form-control" type="file" name="logotipo" value="{{ old('logotipo') }}">
                         </div>
 
                         @error('logotipo')

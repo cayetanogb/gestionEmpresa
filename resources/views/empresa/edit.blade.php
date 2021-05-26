@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('updateEmpresa', $empresa->id) }}" method="post">
+                    <form action="{{ route('updateEmpresa', $empresa->id) }}" method="post"  enctype="multipart/form-data">
                         @method('put')
                         @csrf
 
@@ -60,7 +60,7 @@
 
                         <div class="form-group pt-3">
                             <label class="form-label">Logotipo</label>
-                            <input class="form-control" type="text" name="logotipo" value="{{ $empresa->logotipo }}">
+                            <input class="form-control" type="file" name="logotipo" value="{{ $empresa->logotipo }}">
                         </div>
 
                         @error('logotipo')
